@@ -47,9 +47,7 @@ def main():
                 sql_str += str(transform_obj)+","
             else:
                 sql_str += str(transform_obj) 
-            print(str(transform_obj))
 
-        print(sql_str)
         if sql_str:
             with open('result.sql', 'w') as f:
                 f.write(sql_str)

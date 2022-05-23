@@ -1,0 +1,84 @@
+{
+    "nodes": [
+        {
+            "key": "A",
+            "type": "INPUT",
+            "transformObject": {
+                "tableName": "users",
+                "fields": [
+                    "id",
+                    "name",
+                    "age"
+                ]
+            }
+        },
+        {
+            "key": "B",
+            "type": "FILTER",
+            "transformObject": {
+                "variable_field_name": "age",
+                "joinOperator": "AND",
+                "operations": [
+                    {
+                        "operator": ">",
+                        "value": "18"
+                    },
+                    {
+                        "operator": "<",
+                        "value": "40"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "C",
+            "type": "SORT",
+            "transformObject": [
+                {
+                    "target": "age",
+                    "order": "ASC"
+                },
+                {
+                    "target": "name",
+                    "order": "ASC"
+                }
+            ]
+        },
+        {
+            "key": "D",
+            "type": "TEXT_TRANSFORMATION",
+            "transformObject": [
+                {
+                    "column": "name",
+                    "transformation": "UPPER"
+                }
+            ]
+        },
+        {
+            "key": "E",
+            "type": "OUTPUT",
+            "transformObject": {
+                "limit": 100,
+                "offset": 0
+            }
+        }
+    ],
+    "edges": [
+        {
+            "from": "A",
+            "to": "B"
+        },
+        {
+            "from": "B",
+            "to": "C"
+        },
+        {
+            "from": "C",
+            "to": "D"
+        },
+        {
+            "from": "D",
+            "to": "E"
+        }
+    ]
+}

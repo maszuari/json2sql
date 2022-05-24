@@ -6,3 +6,7 @@ Parse data in a json file to sql file
 
 1. Go to the root folder of the project.
 2. Run this command: __python main.py__
+
+## Author:-
+
+Maszuari
